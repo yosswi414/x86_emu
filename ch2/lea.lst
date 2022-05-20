@@ -1,0 +1,31 @@
+
+lea.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <func>:
+void func(void) {
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   rbp
+   5:	48 89 e5             	mov    rbp,rsp
+   8:	48 83 ec 20          	sub    rsp,0x20
+   c:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+  13:	00 00 
+  15:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+  19:	31 c0                	xor    eax,eax
+    int val;
+    int *ptr = &val;
+  1b:	48 8d 45 ec          	lea    rax,[rbp-0x14]
+  1f:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+    *ptr = 41;
+  23:	48 8b 45 f0          	mov    rax,QWORD PTR [rbp-0x10]
+  27:	c7 00 29 00 00 00    	mov    DWORD PTR [rax],0x29
+  2d:	90                   	nop
+  2e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+  32:	64 48 33 04 25 28 00 	xor    rax,QWORD PTR fs:0x28
+  39:	00 00 
+  3b:	74 05                	je     42 <func+0x42>
+  3d:	e8 00 00 00 00       	call   42 <func+0x42>
+  42:	c9                   	leave  
+  43:	c3                   	ret    
