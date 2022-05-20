@@ -1,0 +1,18 @@
+
+casm-c-sample.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <func>:
+void func() {
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   rbp
+   5:	48 89 e5             	mov    rbp,rsp
+    int val = 154;
+   8:	c7 45 fc 9a 00 00 00 	mov    DWORD PTR [rbp-0x4],0x9a
+    ++val;
+   f:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  13:	90                   	nop
+  14:	5d                   	pop    rbp
+  15:	c3                   	ret    
